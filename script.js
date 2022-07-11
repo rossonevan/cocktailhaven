@@ -1,6 +1,11 @@
-const margaritaHeader = document.getElementById("margarita-header")
- const margaritaDisplay = document.querySelector(".margarita-image")
- console.log(margaritaDisplay)
+const margaritaHeader = document.querySelector("#margarita-header");
+const margaritaDisplay = document.querySelector(".margarita-image");
+const margaritaName = document.querySelector("#name");
+const glassType = document.querySelector("#glass");
+const instructions = document.querySelector("#instructions");
+const form = document.querySelector("#new-margarita");
+
+console.log(form)
 
 
 fetch ("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
@@ -8,25 +13,47 @@ fetch ("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
 .then(margaritaObject => margaritaObject.drinks.forEach(addImage))
 
 function addImage(margarita) { 
-    const margaritaImage = document.createElement("img")
-    margaritaImage.src = margarita.strDrinkThumb
+    const margaritaImage = document.createElement("img");
+    margaritaImage.src = margarita.strDrinkThumb;
 
 
-   margaritaImage.addEventListener("click", function () {
-        displayDetails(margarita)
+   margaritaImage.addEventListener("click",  ()=> displayDetails(margarita))
+   
         
-   })
+
         
         
-   margaritaHeader.append(margaritaImage)
+   margaritaHeader.append(margaritaImage);
     
- }
+}
         
 function displayDetails(margarita) {
-    margaritaDisplay.src = margarita.strDrinkThumb
+    margaritaDisplay.src = margarita.strDrinkThumb;
+    margaritaName.innerText = margarita.strDrink;
+    glassType.innerText = margarita.strGlass;
+    instructions.innerText = margarita.strInstructions;
+     
+}
 
-     }
+form.addEventListener("submit", (e) => {
+     e.preventDefault();
+     const newName = document.querySelector("#margarita-name").value;
+     const newGlass = document.querySelector("#margarita-glass").value;
+     const newInstructions = document.querySelector("#new-instructions").value;
+     const newImage = document.querySelector("#new-image").value;
+      
+     let newMargarita = {
+          strDrink : newName,
+          strGlass : newGlass,
+          strInstructions : newInstructions,
+          strDrinkThumb : newImage
+     };
+
+     addImage(newMargarita);
+})
+
     
+
 
 
     
