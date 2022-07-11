@@ -5,9 +5,6 @@ const glassType = document.querySelector("#glass");
 const instructions = document.querySelector("#instructions");
 const form = document.querySelector("#new-margarita");
 
-console.log(form)
-
-
 fetch ("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
 .then(response => response.json())
 .then(margaritaObject => margaritaObject.drinks.forEach(addImage))
@@ -16,14 +13,9 @@ function addImage(margarita) {
     const margaritaImage = document.createElement("img");
     margaritaImage.src = margarita.strDrinkThumb;
 
-
-   margaritaImage.addEventListener("click",  ()=> displayDetails(margarita))
-   
-        
-
-        
-        
-   margaritaHeader.append(margaritaImage);
+    margaritaImage.addEventListener("click",  ()=> displayDetails(margarita))
+     
+    margaritaHeader.append(margaritaImage);
     
 }
         
