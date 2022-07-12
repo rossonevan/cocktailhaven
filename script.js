@@ -23,9 +23,9 @@ function addImage(margarita) {
 function displayDetails(margarita) {
     margaritaDisplay.src = margarita.strDrinkThumb;
     margaritaName.innerText = margarita.strDrink;
-    glassType.innerText = margarita.strGlass;
-    ingredients.innerText = margarita.strMeasure1 + " " + margarita.strIngredient1 + ", " + margarita.strMeasure2 + " " + margarita.strIngredient2 + ", " + margarita.strMeasure3 + " " + margarita.strIngredient3 + ", " + margarita.strMeasure4 + " " + margarita.strIngredient4;
-    instructions.innerText = margarita.strInstructions;
+    glassType.innerText = `Glass: ${margarita.strGlass}`;
+    ingredients.innerText = `Ingredients: ${margarita.strMeasure1} ${margarita.strIngredient1}, ${margarita.strMeasure2} ${margarita.strIngredient2}, ${margarita.strMeasure3} ${margarita.strIngredient3}, ${margarita.strMeasure4} ${margarita.strIngredient4}`;
+    instructions.innerText = `Instructions: ${margarita.strInstructions}`;
      
 }
 
