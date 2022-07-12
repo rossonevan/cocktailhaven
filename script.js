@@ -10,12 +10,12 @@ fetch ("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
 .then(margaritaObject => margaritaObject.drinks.forEach(addImage))
 
 function addImage(margarita) { 
-    const margaritaImage = document.createElement("img");
-    margaritaImage.src = margarita.strDrinkThumb;
+    const margaritaButton = document.createElement("button");
+    margaritaButton.innerText = margarita.strDrink;
 
-    margaritaImage.addEventListener("click",  ()=> displayDetails(margarita))
+    margaritaButton.addEventListener("click",  ()=> displayDetails(margarita))
      
-    margaritaHeader.append(margaritaImage);
+    margaritaHeader.append(margaritaButton);
     
 }
         
