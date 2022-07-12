@@ -18,7 +18,7 @@ function addImage(margarita) {
      
     margaritaHeader.append(margaritaButton);
     
-}
+};
         
 function displayDetails(margarita) {
     margaritaDisplay.src = margarita.strDrinkThumb;
@@ -27,7 +27,15 @@ function displayDetails(margarita) {
     ingredients.innerText = `Ingredients: ${margarita.strMeasure1} ${margarita.strIngredient1}, ${margarita.strMeasure2} ${margarita.strIngredient2}, ${margarita.strMeasure3} ${margarita.strIngredient3}, ${margarita.strMeasure4} ${margarita.strIngredient4}`;
     instructions.innerText = `Instructions: ${margarita.strInstructions}`;
      
-}
+};
+
+form.addEventListener("focusin", (e) => {
+    e.target.style.background = 'lightblue';
+});
+
+form.addEventListener("focusout", (e) => {
+    e.target.style.background = '';
+});
 
 form.addEventListener("submit", (e) => {
      e.preventDefault();
@@ -46,4 +54,4 @@ form.addEventListener("submit", (e) => {
      addImage(newMargarita);
 
      form.reset();
-})
+});
