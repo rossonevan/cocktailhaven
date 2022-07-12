@@ -6,7 +6,7 @@
 }
 
 
-#margarita-header {
+#cocktail-header {
   background-color: rgb(0, 0, 0);
   padding: 14px 200px;
   border-radius: 25px;
@@ -98,10 +98,6 @@ textarea {
   margin: 0.25rem 0;
   width: 100%;
 }
-
-/* input[type="text"]:focus {
-  background-color: lightblue;
-} */
 
 input[type="submit"] {
   color: white;

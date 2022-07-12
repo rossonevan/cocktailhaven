@@ -1,31 +1,52 @@
-const margaritaHeader = document.querySelector("#margarita-header");
-const margaritaDisplay = document.querySelector(".margarita-image");
-const margaritaName = document.querySelector("#name");
+const cocktailHeader = document.querySelector("#cocktail-header");
+const cocktailDisplay = document.querySelector(".cocktail-image");
+const cocktailName = document.querySelector("#name");
 const glassType = document.querySelector("#glass");
 const ingredients = document.querySelector("#ingredients");
 const instructions = document.querySelector("#instructions");
-const form = document.querySelector("#new-margarita");
+const form = document.querySelector("#new-cocktail");
 
-fetch ("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
+
+fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 .then(response => response.json())
-.then(margaritaObject => margaritaObject.drinks.forEach(addImage))
+.then(object => object.drinks.forEach(addImage))
 
-function addImage(margarita) { 
-    const margaritaButton = document.createElement("button");
-    margaritaButton.innerText = margarita.strDrink;
+fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+.then(response => response.json())
+.then(object => object.drinks.forEach(addImage))
 
-    margaritaButton.addEventListener("click",  ()=> displayDetails(margarita))
+fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+.then(response => response.json())
+.then(object => object.drinks.forEach(addImage))
+
+fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+.then(response => response.json())
+.then(object => object.drinks.forEach(addImage))
+
+fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+.then(response => response.json())
+.then(object => object.drinks.forEach(addImage))
+
+fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+.then(response => response.json())
+.then(object => object.drinks.forEach(addImage))
+
+function addImage(cocktail) { 
+    const cocktailButton = document.createElement("button");
+    cocktailButton.innerText = cocktail.strDrink;
+
+    cocktailButton.addEventListener("click",  ()=> displayDetails(cocktail))
      
-    margaritaHeader.append(margaritaButton);
+    cocktailHeader.append(cocktailButton);
     
 };
         
-function displayDetails(margarita) {
-    margaritaDisplay.src = margarita.strDrinkThumb;
-    margaritaName.innerText = margarita.strDrink;
-    glassType.innerText = `Glass: ${margarita.strGlass}`;
-    ingredients.innerText = `Ingredients: ${margarita.strMeasure1} ${margarita.strIngredient1}, ${margarita.strMeasure2} ${margarita.strIngredient2}, ${margarita.strMeasure3} ${margarita.strIngredient3}, ${margarita.strMeasure4} ${margarita.strIngredient4}`;
-    instructions.innerText = `Instructions: ${margarita.strInstructions}`;
+function displayDetails(cocktail) {
+    cocktailDisplay.src = cocktail.strDrinkThumb;
+    cocktailName.innerText = cocktail.strDrink;
+    glassType.innerText = `Glass: ${cocktail.strGlass}`;
+    ingredients.innerText = `Ingredients: ${cocktail.strMeasure1} ${cocktail.strIngredient1}, ${cocktail.strMeasure2} ${cocktail.strIngredient2}, ${cocktail.strMeasure3} ${cocktail.strIngredient3}, ${cocktail.strMeasure4} ${cocktail.strIngredient4}`;
+    instructions.innerText = `Instructions: ${cocktail.strInstructions}`;
      
 };
 
@@ -39,19 +60,19 @@ form.addEventListener("focusout", (e) => {
 
 form.addEventListener("submit", (e) => {
      e.preventDefault();
-     const newName = document.querySelector("#margarita-name").value;
-     const newGlass = document.querySelector("#margarita-glass").value;
+     const newName = document.querySelector("#cocktail-name").value;
+     const newGlass = document.querySelector("#cocktail-glass").value;
      const newInstructions = document.querySelector("#new-instructions").value;
      const newImage = document.querySelector("#new-image").value;
       
-     let newMargarita = {
+     let newCocktail = {
           strDrink : newName,
           strGlass : newGlass,
           strInstructions : newInstructions,
           strDrinkThumb : newImage
      };
 
-     addImage(newMargarita);
+     addImage(newCocktail);
 
      form.reset();
 });
