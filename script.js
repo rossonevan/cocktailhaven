@@ -2,6 +2,7 @@ const margaritaHeader = document.querySelector("#margarita-header");
 const margaritaDisplay = document.querySelector(".margarita-image");
 const margaritaName = document.querySelector("#name");
 const glassType = document.querySelector("#glass");
+const ingredients = document.querySelector("#ingredients");
 const instructions = document.querySelector("#instructions");
 const form = document.querySelector("#new-margarita");
 
@@ -23,6 +24,7 @@ function displayDetails(margarita) {
     margaritaDisplay.src = margarita.strDrinkThumb;
     margaritaName.innerText = margarita.strDrink;
     glassType.innerText = margarita.strGlass;
+    ingredients.innerText = margarita.strMeasure1 + " " + margarita.strIngredient1 + ", " + margarita.strMeasure2 + " " + margarita.strIngredient2 + ", " + margarita.strMeasure3 + " " + margarita.strIngredient3 + ", " + margarita.strMeasure4 + " " + margarita.strIngredient4;
     instructions.innerText = margarita.strInstructions;
      
 }
