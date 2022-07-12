@@ -9,29 +9,29 @@ const form = document.querySelector("#new-cocktail");
 
 fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 .then(response => response.json())
-.then(object => object.drinks.forEach(addImage))
+.then(object => object.drinks.forEach(addCocktail))
 
 fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 .then(response => response.json())
-.then(object => object.drinks.forEach(addImage))
+.then(object => object.drinks.forEach(addCocktail))
 
 fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 .then(response => response.json())
-.then(object => object.drinks.forEach(addImage))
+.then(object => object.drinks.forEach(addCocktail))
 
 fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 .then(response => response.json())
-.then(object => object.drinks.forEach(addImage))
+.then(object => object.drinks.forEach(addCocktail))
 
 fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 .then(response => response.json())
-.then(object => object.drinks.forEach(addImage))
+.then(object => object.drinks.forEach(addCocktail))
 
 fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 .then(response => response.json())
-.then(object => object.drinks.forEach(addImage))
+.then(object => object.drinks.forEach(addCocktail))
 
-function addImage(cocktail) { 
+function addCocktail(cocktail) { 
     const cocktailButton = document.createElement("button");
     cocktailButton.innerText = cocktail.strDrink;
 
@@ -72,7 +72,7 @@ form.addEventListener("submit", (e) => {
           strDrinkThumb : newImage
      };
 
-     addImage(newCocktail);
+     addCocktail(newCocktail);
 
      form.reset();
 });
