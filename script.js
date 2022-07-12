@@ -44,4 +44,6 @@ form.addEventListener("submit", (e) => {
      };
 
      addImage(newMargarita);
+
+     form.reset();
 })
