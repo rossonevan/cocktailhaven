@@ -55,17 +55,17 @@ function displayDetails(cocktail) {
     const filteredMeasurement = [];
     const filteredIngredients = [];
     arrMeasurement.forEach((e) => {
-        if (e !== 'null' && 'undefined') {
+        if (e !== 'null') {
             filteredMeasurement.push(e);
         };
     });
     arrIngredients.forEach((e) => {
-        if (e !== 'null' && 'undefined') {
+        if (e !== 'null') {
             filteredIngredients.push(e);
         };
     });
 
-    const filtered = filteredMeasurement.map((e, i) => e + filteredIngredients[i]);
+    const filtered = filteredMeasurement.map((e, i) => ' ' + e + ' ' + filteredIngredients[i]);
 
     ingredients.innerText = `Ingredients: ${filtered}`;
     
@@ -91,7 +91,23 @@ form.addEventListener("submit", (e) => {
           strDrink : newName,
           strGlass : newGlass,
           strInstructions : newInstructions,
-          strDrinkThumb : newImage
+          strDrinkThumb : newImage,
+          strMeasure1 : 'null',
+          strIngredient1 : 'null',
+          strMeasure2 : 'null',
+          strIngredient2 : 'null',
+          strMeasure3 : 'null',
+          strIngredient3 : 'null',
+          strMeasure4 : 'null',
+          strIngredient4 : 'null',
+          strMeasure5 : 'null',
+          strIngredient5 : 'null',
+          strMeasure6 : 'null',
+          strIngredient6 : 'null',
+          strMeasure7 : 'null',
+          strIngredient7 : 'null',
+          strMeasure8 : 'null',
+          strIngredient8 : 'null'
      };
 
     addCocktail(newCocktail);
@@ -100,17 +116,5 @@ form.addEventListener("submit", (e) => {
 });
 
 // function removeIngredients() {
-//     const term = 'undefined';
-//     document.querySelectorAll('h4').forEach(e => {
-//         if (e.innerText.includes(term)) {
-//             e.remove();
-//             }
-//     })
-// }
-
-// function removeIngredients () {
-//     const newInstructions = document.createElement('div');
-//     newInstructions.innerHTML = ingredients;
-//     console.log(newInstructions)
-//     // ingredients.innerHTML = '';
+//     ingredients.remove();
 // }

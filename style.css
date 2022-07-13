@@ -1,7 +1,8 @@
 .header {
+  font-family: 'Lobster', cursive;
   text-align: center;
   color: white;
-  font-size: 25px;
+  font-size: 30px;
   text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
 }
 
@@ -61,7 +62,11 @@ body {
   text-shadow: 2px 2px 1px black;
 }
 
-#ingredients {
+#glass {
+  font-size: 20px;
+}
+
+h4 {
     font-weight: bold;
     font-size: 20px;
 }
