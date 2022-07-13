@@ -45,9 +45,8 @@ function displayDetails(cocktail) {
     cocktailDisplay.src = cocktail.strDrinkThumb;
     cocktailName.innerText = cocktail.strDrink;
     glassType.innerText = `Glass: ${cocktail.strGlass}`;
-    ingredients.innerText = `Ingredients: ${cocktail.strMeasure1} ${cocktail.strIngredient1}, ${cocktail.strMeasure2} ${cocktail.strIngredient2}, ${cocktail.strMeasure3} ${cocktail.strIngredient3}, ${cocktail.strMeasure4} ${cocktail.strIngredient4}`;
-    instructions.innerText = `Instructions: ${cocktail.strInstructions}`;
-     
+    // ingredients.innerText = `Ingredients: ${cocktail.strMeasure1} ${cocktail.strIngredient1}, ${cocktail.strMeasure2} ${cocktail.strIngredient2}, ${cocktail.strMeasure3} ${cocktail.strIngredient3}, ${cocktail.strMeasure4} ${cocktail.strIngredient4}`;
+    instructions.innerText = `How to Make: ${cocktail.strInstructions}`;
 };
 
 form.addEventListener("focusin", (e) => {
@@ -60,8 +59,8 @@ form.addEventListener("focusout", (e) => {
 
 form.addEventListener("submit", (e) => {
      e.preventDefault();
-     const newName = document.querySelector("#cocktail-name").value;
-     const newGlass = document.querySelector("#cocktail-glass").value;
+     const newName = document.querySelector("#new-name").value;
+     const newGlass = document.querySelector("#new-glass").value;
      const newInstructions = document.querySelector("#new-instructions").value;
      const newImage = document.querySelector("#new-image").value;
       
@@ -73,6 +72,22 @@ form.addEventListener("submit", (e) => {
      };
 
      addCocktail(newCocktail);
-
+    //  removeIngredients(newCocktail);
      form.reset();
 });
+
+// function removeIngredients() {
+//     const term = 'undefined';
+//     document.querySelectorAll('h4').forEach(e => {
+//         if (e.innerText.includes(term)) {
+//             e.parentElement.removeChild(e);
+//             }
+//     })
+// }
+
+// function removeIngredients () {
+//     const newInstructions = document.createElement('div');
+//     newInstructions.innerHTML = ingredients;
+//     console.log(newInstructions)
+//     // ingredients.innerHTML = '';
+// }

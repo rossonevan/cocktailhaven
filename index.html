@@ -12,29 +12,32 @@
     <br>
     <h2>Welcome to Cocktail Haven!</h2>
     <div id="cocktail-header">
-      <h2>Choose a cocktail!</h2>
+      <h2>Choose a cocktail:</h2>
     </div>
     <br>
-    <div id="cocktail-instructions">
-      <img class="cocktail-image" src="https://possector.com/wordpress/wp-content/uploads/2014/07/top-summer-cocktails-2014-cocktails0.jpg" alt="Cocktails" />
+    <div id="cocktail-details">
+      <img class="cocktail-image" src="https://possector.com/wordpress/wp-content/uploads/2014/07/top-summer-cocktails-2014-cocktails0.jpg" alt="Cocktail" />
       <h2 id="name"></h2>
-      <h3 id="glass">Looking for a Cocktail? You've come to the right place! </h3>
-      <h4 id="ingredients"> </h4>
-      <p id="instructions"> </p>
+      <h3 id="glass">Looking for a Cocktail? You've come to the right place!</h3>
+      <h4 id="ingredients"></h4>
+      <p id="instructions"></p>
     </div>
     <br>
     <br>
     <br>
     <h3 id="form-header">Add Your Own Cocktail!</h3>
     <form id="new-cocktail">
-      <label for="name">Cocktail Name: </label>
-      <input type="text" name="name" id="cocktail-name" />
-      <label for="glass">Type of Glass: </label>
-      <input type="text" name="glass" id="cocktail-glass" />
-      <label for="new-instructions">Instructions: </label>
-      <textarea name="new-instructions" id="new-instructions"> </textarea>
-      <label for="image" >Add Image: </label>
-      <input type="text" name="image" id="new-image" />
+      <label for="name">Cocktail Name:</label>
+      <input type="text" name="name" id="new-name" required/>
+      <br>
+      <label for="glass">Type of Glass:</label>
+      <input type="text" name="glass" id="new-glass" required/>
+      <br>
+      <label for="image" >Image:</label>
+      <input type="text" name="image" id="new-image" required/>
+      <br>
+      <label for="new-instructions">Instructions:</label>
+      <textarea name="new-instructions" id="new-instructions" required></textarea>
       <br>
       <input type="submit" value="Add Cocktail" />
     </form>
