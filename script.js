@@ -35,15 +35,9 @@ function addCocktail(cocktail) {
     const cocktailButton = document.createElement("button");
     cocktailButton.innerText = cocktail.strDrink;
 
-    // cocktailButton.addEventListener('mouseover', () => {
-    //     cocktailDisplay.src;
-    // })
-
-
     cocktailButton.addEventListener("click",  ()=> displayDetails(cocktail))
      
     cocktailHeader.append(cocktailButton);
-    
 };
         
 function displayDetails(cocktail) {
