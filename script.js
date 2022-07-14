@@ -35,6 +35,11 @@ function addCocktail(cocktail) {
     const cocktailButton = document.createElement("button");
     cocktailButton.innerText = cocktail.strDrink;
 
+    // cocktailButton.addEventListener('mouseover', () => {
+    //     cocktailDisplay.src;
+    // })
+
+
     cocktailButton.addEventListener("click",  ()=> displayDetails(cocktail))
      
     cocktailHeader.append(cocktailButton);
@@ -65,6 +70,8 @@ function displayDetails(cocktail) {
         };
     });
 
+    //if value of key value.length = 0, dont show 
+
     const filtered = filteredMeasurement.map((e, i) => ' ' + e + ' ' + filteredIngredients[i]);
 
     ingredients.innerText = `Ingredients: ${filtered}`;
@@ -84,37 +91,26 @@ form.addEventListener("submit", (e) => {
      e.preventDefault();
      const newName = document.querySelector("#new-name").value;
      const newGlass = document.querySelector("#new-glass").value;
+     const newIngredients = document.querySelector('#new-ingredients').value;
      const newInstructions = document.querySelector("#new-instructions").value;
      const newImage = document.querySelector("#new-image").value;
       
-     let newCocktail = {
-          strDrink : newName,
-          strGlass : newGlass,
-          strInstructions : newInstructions,
-          strDrinkThumb : newImage,
-          strMeasure1 : 'null',
-          strIngredient1 : 'null',
-          strMeasure2 : 'null',
-          strIngredient2 : 'null',
-          strMeasure3 : 'null',
-          strIngredient3 : 'null',
-          strMeasure4 : 'null',
-          strIngredient4 : 'null',
-          strMeasure5 : 'null',
-          strIngredient5 : 'null',
-          strMeasure6 : 'null',
-          strIngredient6 : 'null',
-          strMeasure7 : 'null',
-          strIngredient7 : 'null',
-          strMeasure8 : 'null',
-          strIngredient8 : 'null'
-     };
+    function addNewCocktail() { 
+        const newCocktailButton = document.createElement("button");
+        newCocktailButton.innerText = newName;
+    
+        newCocktailButton.addEventListener("click",  ()=> {
+            cocktailDisplay.src = newImage;
+            cocktailName.innerText = newName;
+            glassType.innerText = `Glass: ${newGlass}`;
+            ingredients.innerText = `Ingredients: ${newIngredients}`;
+            instructions.innerText = `How to Make: ${newInstructions}`;
+        });
+         
+        cocktailHeader.append(newCocktailButton);
+        
+    };
 
-    addCocktail(newCocktail);
-    // removeIngredients(newCocktail);
+    addNewCocktail();
     form.reset();
 });
-
-// function removeIngredients() {
-//     ingredients.remove();
-// }
