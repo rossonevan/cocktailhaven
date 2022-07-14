@@ -6,30 +6,15 @@ const ingredients = document.querySelector("#ingredients");
 const instructions = document.querySelector("#instructions");
 const form = document.querySelector("#new-cocktail");
 
+function getInformation () {
+    fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    .then(response => response.json())
+    .then(object => object.drinks.forEach(addCocktail))
+};
 
-fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-.then(response => response.json())
-.then(object => object.drinks.forEach(addCocktail))
-
-fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-.then(response => response.json())
-.then(object => object.drinks.forEach(addCocktail))
-
-fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-.then(response => response.json())
-.then(object => object.drinks.forEach(addCocktail))
-
-fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-.then(response => response.json())
-.then(object => object.drinks.forEach(addCocktail))
-
-fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-.then(response => response.json())
-.then(object => object.drinks.forEach(addCocktail))
-
-fetch ("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-.then(response => response.json())
-.then(object => object.drinks.forEach(addCocktail))
+for (let i = 0; i < 6; i++) {
+    getInformation();
+};
 
 function addCocktail(cocktail) { 
     const cocktailButton = document.createElement("button");
@@ -53,6 +38,7 @@ function displayDetails(cocktail) {
     
     const filteredMeasurement = [];
     const filteredIngredients = [];
+
     arrMeasurement.forEach((e) => {
         if (e !== 'null') {
             filteredMeasurement.push(e);
@@ -64,12 +50,9 @@ function displayDetails(cocktail) {
         };
     });
 
-    //if value of key value.length = 0, dont show 
-
     const filtered = filteredMeasurement.map((e, i) => ' ' + e + ' ' + filteredIngredients[i]);
 
     ingredients.innerText = `Ingredients: ${filtered}`;
-    
     instructions.innerText = `How to Make: ${cocktail.strInstructions}`;
 };
 
@@ -82,12 +65,12 @@ form.addEventListener("focusout", (e) => {
 });
 
 form.addEventListener("submit", (e) => {
-     e.preventDefault();
-     const newName = document.querySelector("#new-name").value;
-     const newGlass = document.querySelector("#new-glass").value;
-     const newIngredients = document.querySelector('#new-ingredients').value;
-     const newInstructions = document.querySelector("#new-instructions").value;
-     const newImage = document.querySelector("#new-image").value;
+    e.preventDefault();
+    const newName = document.querySelector("#new-name").value;
+    const newGlass = document.querySelector("#new-glass").value;
+    const newIngredients = document.querySelector('#new-ingredients').value;
+    const newInstructions = document.querySelector("#new-instructions").value;
+    const newImage = document.querySelector("#new-image").value;
       
     function addNewCocktail() { 
         const newCocktailButton = document.createElement("button");
@@ -101,8 +84,7 @@ form.addEventListener("submit", (e) => {
             instructions.innerText = `How to Make: ${newInstructions}`;
         });
          
-        cocktailHeader.append(newCocktailButton);
-        
+        cocktailHeader.append(newCocktailButton);  
     };
 
     addNewCocktail();
